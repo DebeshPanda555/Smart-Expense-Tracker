@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Smart Expense Tracker</h1>
+    <button id="darkModeToggle">Dark Mode🌙</button>
+  </header>
+
+  <section id="dashboard">
+    <div class="summary">
+      <h2>Dashboard</h2>
+      <p>Total Income: <span id="totalIncome">₹0</span></p>
+      <p>Total Expense: <span id="totalExpense">₹0</span></p>
+      <p>Current Savings: <span id="currentSavings">₹0</span></p>
+    </div>
+
+    <div class="budget">
+      <h3>Set Budgets</h3>
+      <form id="budgetForm">
+        <input type="text" id="budgetCategory" placeholder="Category (e.g., Food)" required />
+        <input type="number" id="budgetAmount" placeholder="Amount" required />
+        <button type="submit">Add Budget</button>
+      </form>
+      <ul id="budgetList"></ul>
+    </div>
+  </section>
+
+  <section id="transactionForm">
+    <h2>Add Transaction</h2>
+    <form id="expenseForm">
+      <input type="text" id="title" placeholder="Title" required />
+      <input type="number" id="amount" placeholder="Amount" required />
+      <input type="date" id="date" required />
+      <select id="category">
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Rent">Rent</option>
+        <option value="Rent">Fees</option>
+        <option value="Rent">Fuel</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="paymentMethod">
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="UPI">UPI</option>
+      </select>
+      <label><input type="checkbox" id="recurring" /> Recurring?</label>
+      <button type="submit">Add Transaction</button>
+    </form>
+  </section>
+
+  <section id="transactions">
+    <h2>Transaction History</h2>
+    <input type="text" id="search" placeholder="Search transactions..." />
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Payment Method</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="transactionTable"></tbody>
+    </table>
+  </section>
+
+  <section id="charts">
+    <h2>📊Visual Insights</h2>
+    <canvas id="pieChart"></canvas>
+    <canvas id="barChart"></canvas>
+    <canvas id="lineChart"></canvas>
+  </section>
+
+  <section id="tools">
+    <h2>🛠️Tools</h2>
+    <button id="exportJSON">Export JSON</button>
+    <button id="exportCSV">Export CSV</button>
+    <button id="generatePDF">Download Report (PDF)</button>
+    <input type="file" id="importFile" />
+  </section>
+
+  <section id="settings">
+    <h2>⚙️Settings</h2>
+    <label for="currency">Select Currency:</label>
+    <select id="currency">
+      <option value="INR">₹ INR</option>
+      <option value="USD">$ USD</option>
+      <option value="EUR">€ EUR</option>
+    </select>
+    <button id="voiceInput">🎙️ Speak Expense</button>
+  </section>
+
+  <section class="investment-section">
+    <h2>💹 Investment Tracker</h2>
+    <form id="investmentForm" class="form">
+      <input type="text" id="investmentName" placeholder="Investment Name" required />
+      <input type="number" id="principalAmount" placeholder="Principal Amount" required />
+      <input type="number" id="interestRate" placeholder="Interest Rate (%)" required />
+      <input type="number" id="investmentYears" placeholder="Duration (Years)" required />
+      <button type="submit">Add Investment</button>
+    </form>
+    <ul id="investmentList" class="investment-list"></ul>
+  </section>
+</body>
+
+</html>
